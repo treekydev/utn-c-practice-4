@@ -9,7 +9,7 @@ void ejercicio6();
 void ejercicio7();
 
 int main(void) {
-    ejercicio7();
+    ejercicio4();
     return 0;
 }
 
@@ -24,11 +24,10 @@ void ejercicio1() {
 
 void ejercicio2() {
     // Desarrolle un algoritmo que permita visualizar los números impares entre el 1 y el 20
-    int contador = 0;
-    contador += 1;
+    int contador = 1;
     while (contador < 20) {
         if (contador % 2 != 0) {
-            printf("%d\n", contador + 1);
+            printf("%d\n", contador);
         }
         contador++;
     }
@@ -48,25 +47,24 @@ void ejercicio4() {
     // que quiera. Al finalizar, debe mostrarse el promedio de las mismas.
 
     int contador = 0;
-    int acumulador = 0;
-    int continuar = 1;
+    char continuar = 's';
     float promedio = 0;
+    float notas = 0;
 
     printf("Cargue las notas que desee para calcular el promedio de las mismas: \n");
-    while ( continuar == 1 ) {
-        int nota = 0;
+    while ( continuar == 's' ) {
+        float nota = 0;
 
-        printf("Ingrese -1 para finalizar la carga\n");
-        scanf("%d", &nota);
+        printf("Ingrese la nota de su estudiante: \n");
+        scanf("%f", &nota);
+        notas += nota;
+        contador += 1;
 
-        if (nota == -1) {
-            continuar = 0;
-        } else {
-            acumulador += nota;
-            contador += 1;
-        }
+        printf("Quiere continuar cargando notas? s/n\n>>> ");
+        fflush(stdin);
+        scanf(" %c", &continuar);
     }
-    promedio = (float)acumulador / contador;
+    promedio = (float)notas / contador;
     printf("\nEl promedio de las %d notas es de: %.2f", contador, promedio);
 }
 
