@@ -9,7 +9,7 @@ void ejercicio6();
 void ejercicio7();
 
 int main(void) {
-    ejercicio4();
+    ejercicio5();
     return 0;
 }
 
@@ -61,7 +61,6 @@ void ejercicio4() {
         contador += 1;
 
         printf("Quiere continuar cargando notas? s/n\n>>> ");
-        fflush(stdin);
         scanf(" %c", &continuar);
     }
     promedio = (float)notas / contador;
@@ -69,8 +68,6 @@ void ejercicio4() {
 }
 
 void ejercicio5() {
-    const float MAX_PIEZA_CHICA = 9.8f;
-    const float MIN_PIEZA_GRANDE = 10.2f;
     int piezas = 0;
     float tamanio = 0;
     int piezasPequenias = 0;
@@ -78,16 +75,16 @@ void ejercicio5() {
     int piezasGrandes = 0;
 
     printf("Ingrese las piezas expresadas en kg.\n");
-    printf("Cuando desee finalizar de cargar INGRESE 0.\n");
+    printf("Cuando desee finalizar INGRESE 0\n");
 
     do {
         printf("Pieza en kg: ");
         scanf("%f", &tamanio);
 
         if (tamanio > 0) {
-            if (tamanio < MAX_PIEZA_CHICA) {
+            if (tamanio < 9.8f) {
                 piezasPequenias += 1;
-            } else if (tamanio > MIN_PIEZA_GRANDE) {
+            } else if (tamanio > 10.2f) {
                 piezasGrandes += 1;
             } else {
                 piezasMedianas += 1;
@@ -108,7 +105,7 @@ void ejercicio6() {
     int acumulador = 0;
 
     do {
-        printf("Ingrese un numero (0 en caso de querer dejar de hacerlo): ");
+        printf("Ingrese un numero (INGRESE 0 PARA FINALIZAR): ");
         scanf("%d", &num);
 
         acumulador += num;
@@ -142,8 +139,8 @@ void ejercicio7() {
         }
 
         printf("Desea seguir ingresando cuentas? (s/n): ");
-        scanf("  %c", &continuar);
-    } while (continuar != 'n');
+        scanf(" %c", &continuar);
+    } while (continuar == 's');
 
     printf("El saldo total ACREEDOR es de $%.4f\n", saldoAcreedor);
 }
